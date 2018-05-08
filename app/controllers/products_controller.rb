@@ -4,7 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    user = params[:user_id]
+    @products = Product.where(user_id: user)
+    render :json => @products
   end
 
   # GET /products/1
@@ -15,6 +17,12 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+  end
+
+  def user_products
+    user = params[:user_id]
+    @products = Product.find_by(user_id: user)
+    render :json => @products
   end
 
   # GET /products/1/edit

@@ -15,3 +15,12 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+
+
+let name_of_function = function (user_id) {
+    console.log("hola");
+    $.get('users/' + (user_id) + '/products.json', function (data) {
+        $(".result").html(data);
+        console.log(data);
+    });
+};
