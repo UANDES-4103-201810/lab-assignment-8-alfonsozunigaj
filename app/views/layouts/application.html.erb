@@ -13,6 +13,7 @@
     <div class="col-sm-2">
       <h3><%= link_to "Lab 08", root_path %></h3>
       <br>
+      <%= link_to "All Users", users_path, class: "btn btn-default btn-block" %>
       <% User.all.each do |user| %>
         <%= link_to "#{user.first_name} #{user.last_name}", user, class: "btn btn-default btn-block", :onclick => 'name_of_function(); return false;', user: user.id %>
       <% end %>
