@@ -17,9 +17,19 @@
 //= require bootstrap-sprockets
 
 
-let name_of_function = function (user_id) {
+let name_of_function = function () {
+    var user_id = event.srcElement.getAttribute('user');
+    var str = "";
+    var $log = $("#products_table");
+    var product;
     $.get('users/' + (user_id) + '/products.json', function (data) {
-        $(".result").html(data);
-        
+       console.log(data);
+       for(var i=0; i<data.length; i++){
+           product = data[i];
+           if (product.user_id == user_id){
+               str += "<tr><td>"+ product.name + "</td><td>" + product.weight + "</td><td>" + product.price + "</td></tr>"
+           }
+       }
+       $log.html($(str));
     });
 };

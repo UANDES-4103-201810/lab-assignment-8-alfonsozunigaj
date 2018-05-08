@@ -17,10 +17,8 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def user_products
-    user = params[:user_id]
-    @products = Product.find_by(user_id: user)
-    render :json => @products
+  def show_my
+    @products = Product.all
   end
 
   # GET /products/1/edit
