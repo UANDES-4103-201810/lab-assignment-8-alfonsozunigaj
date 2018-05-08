@@ -4,9 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    user = params[:user_id]
-    @products = Product.where(user_id: user)
-    render :json => @products
+    @products = Product.all
   end
 
   # GET /products/1
